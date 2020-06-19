@@ -1,16 +1,6 @@
-import { ADD_ARTICLE } from "../constants/action-types";
+import { createStore } from "redux";
+import rootReducer from "../reducers/index";
 
-const initialState = {
-  articles: [],
-};
+const store = createStore(rootReducer);
 
-function rootReducer(state = initialState, action) {
-  if (action.type === ADD_ARTICLE) {
-    return Object.assign({}, state, {
-      articleS: state.articles.concat(action.payload),
-    });
-  }
-  return state;
-}
-
-export default rootReducer;
+export default store;
